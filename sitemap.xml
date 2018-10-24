@@ -3,7 +3,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://aura7988.github.io/post/%E8%AE%A9vim%E6%AF%8F%E5%A4%A9%E8%87%AA%E5%8A%A8%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2018-10-24T00:22:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://aura7988.github.io/</loc>
+    <lastmod>2018-10-24T00:22:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -15,7 +23,28 @@
   </url>
   
   <url>
+    <loc>https://aura7988.github.io/post/</loc>
+    <lastmod>2018-10-24T00:22:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://aura7988.github.io/tags/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aura7988.github.io/tags/vim/</loc>
+    <lastmod>2018-10-24T00:22:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aura7988.github.io/categories/vim/</loc>
+    <lastmod>2018-10-24T00:22:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

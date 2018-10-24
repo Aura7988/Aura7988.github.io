@@ -11,5 +11,14 @@
 	<atom:link href="https://aura7988.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Vim</title>
+      <link>https://aura7988.github.io/categories/vim/</link>
+      <pubDate>Wed, 24 Oct 2018 00:22:13 +0800</pubDate>
+      
+      <guid>https://aura7988.github.io/categories/vim/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

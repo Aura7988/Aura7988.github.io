@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>让Vim每天自动执行命令 - Aura</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Aura" />
+  <meta name="description" content="背景 我用 vim-plug 来管理 Vim 插件，该插件提供了两个命令用来更新它所管理的的插件。为了保持插件最新，一开始我每天手动执行一次更新命令，后来想到应该有什么方法可以让 Vim 每天自动执行这两个命令。 " />
+<meta name="keywords" content="Vim" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.50-DEV" />
+
+
+<link rel="canonical" href="https://aura7988.github.io/post/%E8%AE%A9vim%E6%AF%8F%E5%A4%A9%E8%87%AA%E5%8A%A8%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="让Vim每天自动执行命令" />
+<meta property="og:description" content="背景
+
+我用 vim-plug 来管理 Vim 插件，该插件提供了两个命令用来更新它所管理的的插件。为了保持插件最新，一开始我每天手动执行一次更新命令，后来想到应该有什么方法可以让 Vim 每天自动执行这两个命令。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aura7988.github.io/post/%E8%AE%A9vim%E6%AF%8F%E5%A4%A9%E8%87%AA%E5%8A%A8%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/" /><meta property="article:published_time" content="2018-10-24T00:22:13&#43;08:00"/>
+<meta property="article:modified_time" content="2018-10-24T00:22:13&#43;08:00"/>
+
+<meta itemprop="name" content="让Vim每天自动执行命令">
+<meta itemprop="description" content="背景
+
+我用 vim-plug 来管理 Vim 插件，该插件提供了两个命令用来更新它所管理的的插件。为了保持插件最新，一开始我每天手动执行一次更新命令，后来想到应该有什么方法可以让 Vim 每天自动执行这两个命令。
+">
+
+
+<meta itemprop="datePublished" content="2018-10-24T00:22:13&#43;08:00" />
+<meta itemprop="dateModified" content="2018-10-24T00:22:13&#43;08:00" />
+<meta itemprop="wordCount" content="198">
+
+
+
+<meta itemprop="keywords" content="Vim," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="让Vim每天自动执行命令"/>
+<meta name="twitter:description" content="背景
+
+我用 vim-plug 来管理 Vim 插件，该插件提供了两个命令用来更新它所管理的的插件。为了保持插件最新，一开始我每天手动执行一次更新命令，后来想到应该有什么方法可以让 Vim 每天自动执行这两个命令。
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Aura</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://aura7988.github.io/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://aura7988.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://aura7988.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://aura7988.github.io/categories/">分类</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Aura
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://aura7988.github.io/">首页</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://aura7988.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://aura7988.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://aura7988.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">让Vim每天自动执行命令</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-10-24" class="post-time">
+          2018-10-24
+        </time>
+        <div class="post-category">
+            <a href="https://aura7988.github.io/categories/vim/"> Vim </a>
+            
+          </div>
+        <span class="more-meta"> 约 198 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <h2 id="背景">背景</h2>
+
+<p>我用 <a href="https://github.com/junegunn/vim-plug">vim-plug</a> 来管理 Vim 插件，该插件提供了两个命令用来更新它所管理的的插件。为了保持插件最新，一开始我每天手动执行一次更新命令，后来想到应该有什么方法可以让 Vim 每天自动执行这两个命令。
+</p>
+
+<h2 id="解决方法">解决方法</h2>
+
+<p>在 .vimrc 中添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">au</span> <span class="nx">VimEnter</span> * <span class="nx">call</span> <span class="p">&lt;</span><span class="nx">SID</span><span class="p">&gt;</span><span class="nx">OnceADay</span><span class="p">()</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">function</span><span class="p">!</span> <span class="p">&lt;</span><span class="nx">SID</span><span class="p">&gt;</span><span class="nx">OnceADay</span><span class="p">()</span><span class="err">
+</span><span class="err"></span>	<span class="k">let</span> <span class="nx">s</span><span class="p">:</span><span class="nx">vimrc</span> <span class="p">=</span> <span class="s1">&#39;/Users/aura/.vimrc&#39;</span><span class="err">
+</span><span class="err"></span>	<span class="k">let</span> <span class="nx">s</span><span class="p">:</span><span class="nx">vimrcDate</span> <span class="p">=</span> <span class="nx">strftime</span><span class="p">(</span><span class="c">&#34;%Y%m%d&#34;, getftime(s:vimrc))</span><span class="err">
+</span><span class="err"></span>	<span class="k">let</span> <span class="nx">s</span><span class="p">:</span><span class="nx">currDate</span> <span class="p">=</span> <span class="nx">strftime</span><span class="p">(</span><span class="c">&#34;%Y%m%d&#34;)</span><span class="err">
+</span><span class="err"></span>	<span class="k">if</span> <span class="nx">s</span><span class="p">:</span><span class="nx">vimrcDate</span> <span class="p">!=</span> <span class="nx">s</span><span class="p">:</span><span class="nx">currDate</span><span class="err">
+</span><span class="err"></span>		<span class="p">:</span><span class="nx">PlugUpdate</span> <span class="p">|</span> <span class="nx">PlugUpgrade</span><span class="c"> &#34;此处放置需要自动执行的命令</span><span class="err">
+</span><span class="err"></span>		<span class="nx">execute</span><span class="c"> &#34;silent !touch&#34; s:vimrc</span><span class="err">
+</span><span class="err"></span>	<span class="k">endif</span><span class="err">
+</span><span class="err"></span><span class="k">endfunction</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>不知道还有没有更好的解决方法？</p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://www.ibm.com/developerworks/cn/linux/l-vim-script-1/index.html">使用脚本编写 Vim 编辑器</a></p>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Aura</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-10-24</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div>
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://aura7988.github.io/tags/vim/">Vim</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "https://aura7988.github.io/post/%E8%AE%A9vim%E6%AF%8F%E5%A4%A9%E8%87%AA%E5%8A%A8%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'aura7988';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  </div>
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:aura8897@gmail.com" rel="me noopener" class="iconfont icon-email"
+        title="email">
+      </a>
+      <a href="https://github.com/Aura7988" rel="me noopener" class="iconfont icon-github"
+        title="github" target="_blank">
+      </a>
+  <a href="https://aura7988.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="iconfont icon-rss"
+    title="rss" target="_blank">
+  </a>
+  </div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span><span class="author">
+        Aura.H
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
