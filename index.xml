@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aura&#39;s blog</title>
+    <link>https://aura7988.github.io/</link>
+    <description>Recent content on Aura&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 05 Sep 2021 15:21:37 +0800</lastBuildDate>
+    
+        <atom:link href="https://aura7988.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://aura7988.github.io/about/</link>
+      <pubDate>Sun, 05 Sep 2021 15:12:56 +0800</pubDate>
+      
+      <guid>https://aura7988.github.io/about/</guid>
+      
+        <description>&lt;p&gt;Valar Morghulis&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>我的 Tab60</title>
+      <link>https://aura7988.github.io/post/keyboard/</link>
+      <pubDate>Sun, 05 Sep 2021 15:21:37 +0800</pubDate>
+      
+      <guid>https://aura7988.github.io/post/keyboard/</guid>
+      
+        <description>&lt;p&gt;&lt;img src=&#34;https://aura7988.github.io/keyboard.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

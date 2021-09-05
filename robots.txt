@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://aura7988.github.io/sitemap.xml
